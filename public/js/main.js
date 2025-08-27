@@ -41,7 +41,7 @@ function createStars() {
 // Sayt ma'lumotlarini yuklash
 async function loadSiteData() {
     try {
-        const response = await fetch('/api/portfolio');
+        const response = await fetch('https://portf2.onrender.com/api/portfolio');
         const data = await response.json();
         
         // Sayt sarlavhasi
@@ -77,7 +77,7 @@ async function loadSiteData() {
 // Xizmatlarni yuklash
 async function loadServices() {
     try {
-        const response = await fetch('/api/portfolio');
+        const response = await fetch('https://portf2.onrender.com/api/portfolio');
         const data = await response.json();
         
         const container = document.getElementById('services-container');
@@ -100,7 +100,7 @@ async function loadServices() {
 // Mahsulotlarni yuklash
 async function loadProducts() {
     try {
-        const response = await fetch('/api/portfolio');
+        const response = await fetch('https://portf2.onrender.com/api/portfolio');
         const data = await response.json();
         
         const container = document.getElementById('products-container');
@@ -156,7 +156,7 @@ async function loadProducts() {
 // Galereyani yuklash
 async function loadGallery() {
     try {
-        const response = await fetch('/api/portfolio');
+        const response = await fetch('https://portf2.onrender.com/api/portfolio');
         const data = await response.json();
         
         const container = document.getElementById('gallery-container');
@@ -180,7 +180,7 @@ async function loadGallery() {
 // Ijtimoiy tarmoqlarni yuklash
 async function loadSocialMedia() {
     try {
-        const response = await fetch('/api/portfolio');
+        const response = await fetch('https://portf2.onrender.com/api/portfolio');
         const data = await response.json();
         
         const container = document.getElementById('social-icons');
@@ -224,7 +224,7 @@ function setupOrderForm() {
             };
             
             try {
-                const response = await fetch('/api/order', {
+                const response = await fetch('https://portf2.onrender.com/api/order', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
