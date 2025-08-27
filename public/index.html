@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2080 | Samoviy Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style type="text/tailwindcss">
+        @theme {
+            --color-space: #0a0e17;
+            --color-neon: #00f3ff;
+            --color-galaxy: #6e45e2;
+            --color-stardust: #ffd700;
+            --color-meteor: #ff4d4d;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--color-space) 0%, #1a1f35 100%);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .stellar-bg {
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0iYSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNTAlIiBmeD0iNTAlIiBmeT0iNTAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGExZTMwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNhKSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LXNpemU9IjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiIG9wYWNpdHk9Ii4wNSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiPjIwODA8L3RleHQ+PC9zdmc+');
+        }
+        
+        .space-gradient {
+            background: linear-gradient(135deg, #0a0e17 0%, #1a1f35 50%, #2d344a 100%);
+        }
+        
+        .neon-text {
+            color: var(--color-neon);
+            text-shadow: 0 0 5px var(--color-neon), 0 0 10px var(--color-neon), 0 0 15px var(--color-neon);
+        }
+        
+        .galaxy-border {
+            border: 2px solid transparent;
+            background: linear-gradient(var(--color-space), var(--color-space)) padding-box,
+                        linear-gradient(45deg, var(--color-galaxy), var(--color-neon)) border-box;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 243, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .orbit-1 { width: 300px; height: 300px; animation: orbit-rotate 20s linear infinite; }
+        .orbit-2 { width: 500px; height: 500px; animation: orbit-rotate 30s linear infinite reverse; }
+        .orbit-3 { width: 700px; height: 700px; animation: orbit-rotate 40s linear infinite; }
+        
+        @keyframes orbit-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .satellite {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--color-neon);
+            border-radius: 50%;
+            animation: satellite-move linear infinite;
+        }
+        
+        @keyframes satellite-move {
+            0% { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+        
+        .hologram-effect {
+            background: linear-gradient(45deg, rgba(110, 69, 226, 0.2), rgba(0, 243, 255, 0.2));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        
+        .grid-cosmic {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .cosmic-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: transform 0.5s;
+        }
+        
+        .cosmic-card:hover {
+            transform: perspective(1000px) rotateY(10deg) rotateX(5deg) translateZ(20px);
+        }
+    </style>
+</head>
+<body class="min-h-screen stellar-bg overflow-x-hidden">
+    <!-- Kosmik effektlar -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 orbit orbit-1"></div>
+        <div class="absolute top-1/3 left-1/3 orbit orbit-2"></div>
+        <div class="absolute top-1/2 left-1/2 orbit orbit-3"></div>
+        
+        <!-- Yulduzlar -->
+        <div id="stars-container"></div>
+        
+        <!-- Sun'iy yo'ldosh -->
+        <div class="satellite"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 p-4 flex justify-between items-center hologram-effect">
+        <div class="neon-text text-2xl font-bold" id="site-title">Samoviy Portfolio</div>
+        <div class="hidden md:flex space-x-6">
+            <a href="#home" class="hover:text-neon transition-colors">Bosh sahifa</a>
+            <a href="#about" class="hover:text-neon transition-colors">Men haqimda</a>
+            <a href="#services" class="hover:text-neon transition-colors">Xizmatlar</a>
+            <a href="#portfolio" class="hover:text-neon transition-colors">Ishlarim</a>
+            <a href="#gallery" class="hover:text-neon transition-colors">Galereya</a>
+            <a href="#products" class="hover:text-neon transition-colors">Mahsulotlar</a>
+            <a href="#contact" class="hover:text-neon transition-colors">Bog'lanish</a>
+        </div>
+        <div class="md:hidden text-xl">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative px-4">
+        <div class="text-center z-10">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 neon-text floating">Kelejak <span class="text-stardust">2080</span></h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto" id="hero-subtitle">Dizayn va texnologiyalarning mukammal uyushmasi</p>
+            <button class="galaxy-border px-8 py-3 rounded-full text-lg hover:bg-neon hover:text-space transition-all pulse">
+                Ko'proq ko'rish
+            </button>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-neon"></i>
+        </div>
+    </section>
+
+    <!-- Men haqimda -->
+    <section id="about" class="py-20 px-4 relative">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="cosmic-card hologram-effect p-8 rounded-2xl">
+                <h2 class="text-3xl font-bold mb-6 neon-text">Men haqimda</h2>
+                <div class="space-y-4" id="about-content">
+                    <p>Mening ismim <span class="text-neon" id="person-name">Akmaljon</span>. Men 2080-yildagi eng ilg'or texnologiyalar va dizayn yechimlari bilan ishlaydigan mutaxassisman.</p>
+                    <p>10 yildan ortiq tajribaga egaman, turli xil loyihalarda ishlaganman. Mening asosiy maqsadim - dunyoni yorqinroq va qulayroq qilish.</p>
+                </div>
+                <div class="mt-8 flex space-x-4" id="social-icons">
+                    <!-- Ijtimoiy tarmoqlar dinamik ravishda joylashtiriladi -->
+                </div>
+            </div>
+            <div class="relative">
+                <div class="floating">
+                    <img src="https://pikaso.cdnpk.net/private/production/1936055303/upload.png?token=exp=1775001600~hmac=d6184513afd0491ecd9a84f2e6e65735fa073c8e85a95536fd026660f86d4e21&preview=1" alt="Profile" class="rounded-2xl galaxy-border w-full">
+                </div>
+                <div class="absolute -top-4 -right-4 w-32 h-32 bg-galaxy rounded-2xl -z-10"></div>
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-neon rounded-2xl -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Xizmatlar -->
+    <section id="services" class="py-20 px-4 space-gradient">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 neon-text">Mening Xizmatlarim</h2>
+            <div class="grid md:grid-cols-3 gap-8" id="services-container">
+                <!-- Xizmatlar dinamik ravishda joylashtiriladi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 neon-text">Mening Ishlarim</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-container">
+                <!-- Portfolio elementlari dinamik ravishda joylashtiriladi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Galereya -->
+    <section id="gallery" class="py-20 px-4 space-gradient">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 neon-text">Galereya</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-container">
+                <!-- Galereya rasmlari dinamik ravishda joylashtiriladi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Mahsulotlar -->
+    <section id="products" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-16 neon-text">Mahsulotlar</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-container">
+                <!-- Mahsulotlar dinamik ravishda joylashtiriladi -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Buyurtma berish formasi -->
+    <section class="py-20 px-4 space-gradient">
+        <div class="max-w-2xl mx-auto cosmic-card hologram-effect p-8 rounded-2xl">
+            <h2 class="text-3xl font-bold text-center mb-8 neon-text">Buyurtma berish</h2>
+            <form id="order-form">
+                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                    <div>
+                        <label for="product" class="block mb-2 text-sm font-medium">Mahsulot</label>
+                        <select id="product" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5" required>
+                            <option value="">Mahsulotni tanlang</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="price" class="block mb-2 text-sm font-medium">Narxi</label>
+                        <input type="text" id="price" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5" readonly>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label for="customer_name" class="block mb-2 text-sm font-medium">Ismingiz</label>
+                    <input type="text" id="customer_name" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5" required>
+                </div>
+                <div class="mb-6">
+                    <label for="customer_contact" class="block mb-2 text-sm font-medium">Aloqa</label>
+                    <input type="text" id="customer_contact" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5" required>
+                </div>
+                <div class="mb-6">
+                    <label for="telegram_username" class="block mb-2 text-sm font-medium">Telegram username</label>
+                    <input type="text" id="telegram_username" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5" required>
+                </div>
+                <div class="mb-6">
+                    <label for="screenshot" class="block mb-2 text-sm font-medium">To'lov screenshot'ı</label>
+                    <input type="file" id="screenshot" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5" required>
+                </div>
+                <button type="submit" class="galaxy-border px-8 py-3 rounded-full text-lg hover:bg-neon hover:text-space transition-all w-full">
+                    Buyurtma berish
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Bog'lanish -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8 neon-text">Bog'lanish</h2>
+            <p class="mb-12">Men bilan bog'lanish uchun quyidagi ma'lumotlardan foydalanishingiz mumkin</p>
+            <div class="grid md:grid-cols-3 gap-8 mb-16" id="contact-info">
+                <!-- Kontakt ma'lumotlari dinamik ravishda joylashtiriladi -->
+            </div>
+            <div class="hologram-effect p-8 rounded-2xl">
+                <h3 class="text-xl font-bold mb-6">Xabar yuborish</h3>
+                <form>
+                    <div class="grid gap-6 mb-6 md:grid-cols-2">
+                        <input type="text" placeholder="Ismingiz" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5">
+                        <input type="email" placeholder="Email" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5">
+                    </div>
+                    <div class="mb-6">
+                        <textarea placeholder="Xabaringiz" rows="4" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5"></textarea>
+                    </div>
+                    <button type="submit" class="galaxy-border px-8 py-3 rounded-full text-lg hover:bg-neon hover:text-space transition-all">
+                        Xabar yuborish
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hologram-effect py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>&copy; 2080 Samoviy Portfolio. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

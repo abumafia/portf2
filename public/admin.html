@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Samoviy Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style type="text/tailwindcss">
+        body {
+            background: linear-gradient(135deg, #0a0e17 0%, #1a1f35 100%);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .admin-panel {
+            min-height: 100vh;
+            display: flex;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: rgba(10, 14, 23, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .hologram-effect {
+            background: linear-gradient(45deg, rgba(110, 69, 226, 0.2), rgba(0, 243, 255, 0.2));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        
+        .neon-text {
+            color: #00f3ff;
+            text-shadow: 0 0 5px #00f3ff, 0 0 10px #00f3ff;
+        }
+        
+        .galaxy-border {
+            border: 2px solid transparent;
+            background: linear-gradient(#0a0e17, #0a0e17) padding-box,
+                        linear-gradient(45deg, #6e45e2, #00f3ff) border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-panel">
+        <!-- Sidebar -->
+        <div class="sidebar hologram-effect">
+            <div class="text-center p-4">
+                <h1 class="text-2xl font-bold neon-text">Admin Panel</h1>
+            </div>
+            <nav class="mt-8">
+                <ul>
+                    <li class="p-4 hover:bg-gray-800 cursor-pointer" data-tab="general">Umumiy sozlamalar</li>
+                    <li class="p-4 hover:bg-gray-800 cursor-pointer" data-tab="about">Men haqimda</li>
+                    <li class="p-4 hover:bg-gray-800 cursor-pointer" data-tab="services">Xizmatlar</li>
+                    <li class="p-4 hover:bg-gray-800 cursor-pointer" data-tab="gallery">Galereya</li>
+                    <li class="p-4 hover:bg-gray-800 cursor-pointer" data-tab="products">Mahsulotlar</li>
+                    <li class="p-4 hover:bg-gray-800 cursor-pointer" data-tab="orders">Buyurtmalar</li>
+                    <li class="p-4 hover:bg-gray-800 cursor-pointer" data-tab="social">Ijtimoiy tarmoqlar</li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Asosiy kontent -->
+        <div class="main-content">
+            <!-- Umumiy sozlamalar -->
+            <div id="general-tab" class="tab-content">
+                <h2 class="text-2xl font-bold mb-6 neon-text">Umumiy sozlamalar</h2>
+                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                    <div>
+                        <label for="site-title" class="block mb-2">Sayt nomi</label>
+                        <input type="text" id="site-title" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5">
+                    </div>
+                    <div>
+                        <label for="favicon" class="block mb-2">Favicon URL</label>
+                        <input type="text" id="favicon" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5">
+                    </div>
+                </div>
+                <button id="save-general" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all">
+                    Saqlash
+                </button>
+            </div>
+            
+            <!-- Men haqimda -->
+            <div id="about-tab" class="tab-content hidden">
+                <h2 class="text-2xl font-bold mb-6 neon-text">Men haqimda</h2>
+                <div class="mb-6">
+                    <label for="person-name" class="block mb-2">Ism</label>
+                    <input type="text" id="person-name" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5">
+                </div>
+                <div class="mb-6">
+                    <label for="person-bio" class="block mb-2">Bio</label>
+                    <textarea id="person-bio" rows="4" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5"></textarea>
+                </div>
+                <button id="save-about" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all">
+                    Saqlash
+                </button>
+            </div>
+            
+            <!-- Xizmatlar -->
+            <div id="services-tab" class="tab-content hidden">
+                <h2 class="text-2xl font-bold mb-6 neon-text">Xizmatlar</h2>
+                <div id="services-list" class="mb-6">
+                    <!-- Xizmatlar ro'yxati -->
+                </div>
+                <button id="add-service" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all mb-6">
+                    + Xizmat qo'shish
+                </button>
+                <button id="save-services" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all">
+                    Saqlash
+                </button>
+            </div>
+            
+            <!-- Galereya -->
+            <div id="gallery-tab" class="tab-content hidden">
+                <h2 class="text-2xl font-bold mb-6 neon-text">Galereya</h2>
+                <div id="gallery-list" class="mb-6 grid grid-cols-3 gap-4">
+                    <!-- Galereya rasmlari -->
+                </div>
+                <div class="mb-6">
+                    <label for="gallery-image" class="block mb-2">Yangi rasm qo'shish</label>
+                    <input type="file" id="gallery-image" class="galaxy-border bg-transparent rounded-lg block w-full p-2.5">
+                </div>
+                <button id="add-gallery-item" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all">
+                    Qo'shish
+                </button>
+            </div>
+            
+            <!-- Mahsulotlar -->
+            <div id="products-tab" class="tab-content hidden">
+                <h2 class="text-2xl font-bold mb-6 neon-text">Mahsulotlar</h2>
+                <div id="products-list" class="mb-6">
+                    <!-- Mahsulotlar ro'yxati -->
+                </div>
+                <button id="add-product" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all mb-6">
+                    + Mahsulot qo'shish
+                </button>
+                <button id="save-products" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all">
+                    Saqlash
+                </button>
+            </div>
+            
+            <!-- Buyurtmalar -->
+            <div id="orders-tab" class="tab-content hidden">
+                <h2 class="text-2xl font-bold mb-6 neon-text">Buyurtmalar</h2>
+                <div id="orders-list">
+                    <!-- Buyurtmalar ro'yxati -->
+                </div>
+            </div>
+            
+            <!-- Ijtimoiy tarmoqlar -->
+            <div id="social-tab" class="tab-content hidden">
+                <h2 class="text-2xl font-bold mb-6 neon-text">Ijtimoiy tarmoqlar</h2>
+                <div id="social-list" class="mb-6">
+                    <!-- Ijtimoiy tarmoqlar ro'yxati -->
+                </div>
+                <button id="add-social" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all mb-6">
+                    + Tarmoq qo'shish
+                </button>
+                <button id="save-social" class="galaxy-border px-6 py-2 rounded-lg hover:bg-neon hover:text-space transition-all">
+                    Saqlash
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>
