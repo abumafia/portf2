@@ -38,7 +38,7 @@ function setupTabs() {
 // Ma'lumotlarni yuklash
 async function loadAdminData() {
     try {
-        const response = await fetch('/api/portfolio');
+        const response = await fetch('https://portf2.onrender.com/api/portfolio');
         const data = await response.json();
         
         // Umumiy sozlamalar
@@ -194,7 +194,7 @@ function renderSocialMedia(socials) {
 // Buyurtmalarni yuklash
 async function loadOrders() {
     try {
-        const response = await fetch('/api/orders');
+        const response = await fetch('https://portf2.onrender.com/api/orders');
         const orders = await response.json();
         
         const container = document.getElementById('orders-list');
@@ -289,7 +289,7 @@ async function saveGeneral() {
     };
     
     try {
-        const response = await fetch('/api/portfolio', {
+        const response = await fetch('https://portf2.onrender.com/api/portfolio', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -316,7 +316,7 @@ async function saveAbout() {
     };
     
     try {
-        const response = await fetch('/api/portfolio', {
+        const response = await fetch('https://portf2.onrender.com/api/portfolio', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -347,7 +347,7 @@ async function saveServices() {
     });
     
     try {
-        const response = await fetch('/api/portfolio', {
+        const response = await fetch('https://portf2.onrender.com/api/portfolio', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -382,7 +382,7 @@ async function saveSocial() {
     });
     
     try {
-        const response = await fetch('/api/portfolio', {
+        const response = await fetch('https://portf2.onrender.com/api/portfolio', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
